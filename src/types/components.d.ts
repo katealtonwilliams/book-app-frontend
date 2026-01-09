@@ -1,3 +1,5 @@
-export interface SubSignProps {
-  text: string;
+interface SignProps {
+  text?: string;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }

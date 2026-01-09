@@ -1,9 +1,12 @@
 import { FC } from "react";
 import "../index.css";
-import { SubSignProps } from "../types/components";
 
-const SubSign: FC<SubSignProps> = ({ text }) => {
-  return <div className="sign sub-sign">{text}</div>;
+const SubSign: FC<SignProps> = ({ text, onClick }) => {
+  return (
+    <div className="sign sub-sign" onClick={onClick}>
+      {text}
+    </div>
+  );
 };
 
 export default SubSign;

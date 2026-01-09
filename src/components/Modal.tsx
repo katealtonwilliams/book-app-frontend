@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import SubSign from "./SubSigns";
 
-const AriaModal: React.FC = () => {
+interface ModalProps {
+  text?: string;
+}
+
+const SignModal: React.FC<ModalProps> = ({ text }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +25,7 @@ const AriaModal: React.FC = () => {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <SubSign onClick={() => setIsOpen(true)} text={text}></SubSign>
 
       {isOpen && (
         <div
@@ -62,6 +67,4 @@ const AriaModal: React.FC = () => {
   );
 };
 
-export default AriaModal;
-
-
+export default SignModal;

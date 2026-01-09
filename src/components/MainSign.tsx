@@ -1,11 +1,6 @@
 import React from "react";
 
-interface MainSignProps {
-  text?: string;
-  onClick?: () => void;
-}
-
-const MainSign: React.FC<MainSignProps> = ({
+const MainSign: React.FC<SignProps> = ({
   text = "Kate's Library",
   onClick,
 }) => {

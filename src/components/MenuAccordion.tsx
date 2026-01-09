@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MainSign from "./MainSign";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import SubSign from "./SubSigns";
+import SignModal from "./Modal";
 
 const MenuAccordion = () => {
   const [expanded, setExpanded] = useState(false);
@@ -46,7 +46,7 @@ const MenuAccordion = () => {
           >
             {["Summary", "Stats", "All Books"].map((text) => (
               <motion.div key={text} variants={itemVariants}>
-                <SubSign text={text} />
+                <SignModal text={text} />
               </motion.div>
             ))}
           </motion.div>
