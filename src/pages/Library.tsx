@@ -1,8 +1,8 @@
 import { FC } from "react";
 import MainSign from "../components/MainSign";
 
-const FirstPage: FC = () => {
+const Library: FC = () => {
   return <MainSign text={"Kate's Library"} imageUrl={"/wooden-sign.png"} />;
 };
 
-export default FirstPage;
+export default Library;
