@@ -1,14 +1,16 @@
-import { FC } from "react";
-import "../index.css";
+import React from "react";
 
-interface SignProps {
-  text: string;
-  imageUrl: string;
+interface MainSignProps {
+  text?: string;
+  onClick?: () => void;
 }
 
-const MainSign: FC<SignProps> = ({ text, imageUrl }) => {
+const MainSign: React.FC<MainSignProps> = ({
+  text = "Kate's Library",
+  onClick,
+}) => {
   return (
-    <div className="sign" style={{ backgroundImage: `url(${imageUrl})` }}>
+    <div className="sign" onClick={onClick}>
       {text}
     </div>
   );

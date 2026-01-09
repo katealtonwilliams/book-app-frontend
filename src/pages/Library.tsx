@@ -1,8 +1,15 @@
 import { FC } from "react";
-import MainSign from "../components/MainSign";
+import "../index.css";
+import MenuAccordion from "../components/MenuAccordion";
 
 const Library: FC = () => {
-  return <MainSign text={"Kate's Library"} imageUrl={"/wooden-sign.png"} />;
+  return (
+    <>
+      <div>
+        <MenuAccordion />
+      </div>
+    </>
+  );
 };
 
 export default Library;
