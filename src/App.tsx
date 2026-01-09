@@ -1,12 +1,20 @@
+import { lazy } from "react";
 import "./App.css";
-import { Greet } from "./components/Greet";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const FirstPage = lazy(() => import("./pages/FirstPage"));
 
 function App() {
-  return (
-    <div className="App">
-      <Greet name={"Kate"} count={20} isLoggedIn={false}/>
-    </div>
+  const routes: React.ReactElement = (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/FirstPage" element={<FirstPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
+  return routes;
 }
 
 export default App;
