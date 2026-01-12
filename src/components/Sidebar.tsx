@@ -3,6 +3,7 @@ import MainSign from "./MainSign";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import SignModal from "./Modal";
 import SubSign from "./SubSigns";
+import Summary from "./SummaryPage";
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -52,7 +53,7 @@ const Sidebar = () => {
             >
               {sidebarItems.map((text) => (
                 <motion.div key={text} variants={itemVariants}>
-                  <SubSign onClick={() => setOpenModal(text)} text={text} />
+                  <SubSign onClick={() => setOpenModal(text)} title={text} />
                 </motion.div>
               ))}
             </motion.div>
@@ -60,7 +61,10 @@ const Sidebar = () => {
         </AnimatePresence>
       </div>
       {openModal && (
-        <SignModal children={"hi"} onClose={() => setOpenModal(null)} />
+        <SignModal onClose={() => setOpenModal(null)}>
+          {" "}
+          <Summary />
+        </SignModal>
       )}
     </div>
   );

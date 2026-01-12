@@ -1,12 +1,12 @@
 import React from "react";
 
 const MainSign: React.FC<SignProps> = ({
-  text = "Kate's Library",
+  title = "Kate's Library",
   onClick,
 }) => {
   return (
     <div className="sign" onClick={onClick}>
-      {text}
+      {title}
     </div>
   );
 };

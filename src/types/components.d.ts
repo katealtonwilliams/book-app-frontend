@@ -1,5 +1,5 @@
 interface SignProps {
-  text?: string;
+  title?: string;
   onClick?: () => void;
   children?: React.ReactNode;
 }
