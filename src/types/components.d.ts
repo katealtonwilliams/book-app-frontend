@@ -3,3 +3,8 @@ interface SignProps {
   onClick?: () => void;
   children?: React.ReactNode;
 }
+
+interface SignModalProps {
+  onClose: () => void;
+  children: React.ReactNode;
+}

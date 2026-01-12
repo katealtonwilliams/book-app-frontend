@@ -60,7 +60,7 @@ const Sidebar = () => {
         </AnimatePresence>
       </div>
       {openModal && (
-        <SignModal text={openModal} onClose={() => setOpenModal(null)} />
+        <SignModal children={"hi"} onClose={() => setOpenModal(null)} />
       )}
     </div>
   );

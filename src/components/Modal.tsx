@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 
-interface SignModalProps {
-  text: string;
-  onClose: () => void;
-}
-
-const SignModal: React.FC<SignModalProps> = ({ text, onClose }) => {
+const SignModal: React.FC<SignModalProps> = ({ children, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,7 +28,6 @@ const SignModal: React.FC<SignModalProps> = ({ text, onClose }) => {
     <AnimatePresence>
       <motion.div
         className="modal-area"
-        key={text}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -48,8 +42,7 @@ const SignModal: React.FC<SignModalProps> = ({ text, onClose }) => {
           tabIndex={-1}
           style={{ transformOrigin: "center" }}
         >
-          <h2>{text}</h2>
-          <p>This modal opens like a book!</p>
+          {children}
           <button onClick={onClose}>Close</button>
         </motion.div>
       </motion.div>
