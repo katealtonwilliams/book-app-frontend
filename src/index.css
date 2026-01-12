@@ -53,6 +53,7 @@ code {
 }
 
 .sign-modal {
+  position: relative;
   width: 80%;
   height: 80%;
   background: white;
@@ -65,4 +66,20 @@ code {
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+.button {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  width: 50px;
+  height: 100px;
+  background-size: contain;
+  background-position: center center;
+  background-image: url("../public/close-button.png");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
