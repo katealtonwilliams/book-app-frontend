@@ -62,7 +62,6 @@ const Sidebar = () => {
       </div>
       {openModal && (
         <SignModal onClose={() => setOpenModal(null)}>
-          {" "}
           <Summary />
         </SignModal>
       )}
