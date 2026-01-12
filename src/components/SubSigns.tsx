@@ -1,5 +1,4 @@
 import { FC } from "react";
-import "../index.css";
 
 const SubSign: FC<SignProps> = ({ text, onClick }) => {
   return (

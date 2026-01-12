@@ -1,11 +1,10 @@
 import { FC } from "react";
-import "../index.css";
-import MenuAccordion from "../components/MenuAccordion";
+import Sidebar from "../components/Sidebar";
 
 const Library: FC = () => {
   return (
     <div>
-      <MenuAccordion />
+      <Sidebar />
     </div>
   );
 };

@@ -1,69 +1,59 @@
-import React, { useState, useRef, useEffect } from "react";
-import SubSign from "./SubSigns";
+import React, { useEffect, useRef } from "react";
+import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 
-interface ModalProps {
-  text?: string;
+interface SignModalProps {
+  text: string;
+  onClose: () => void;
 }
 
-const SignModal: React.FC<ModalProps> = ({ text }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const SignModal: React.FC<SignModalProps> = ({ text, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Focus trap: put focus on the modal when it opens
   useEffect(() => {
-    if (isOpen && modalRef.current) {
+    if (modalRef.current) {
       modalRef.current.focus();
     }
-  }, [isOpen]);
+  }, []);
 
-  // Close on Escape key
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Escape") {
-      setIsOpen(false);
-    }
+  const modalVariants = {
+    hidden: { scaleX: 0, opacity: 0 },
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+      transition: { duration: 0.6, ease: easeOut },
+    },
+    exit: {
+      scaleX: 0,
+      opacity: 0,
+      transition: { duration: 0.4, ease: easeIn },
+    },
   };
 
   return (
-    <div>
-      <SubSign onClick={() => setIsOpen(true)} text={text}></SubSign>
-
-      {isOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-          tabIndex={-1}
+    <AnimatePresence>
+      <motion.div
+        className="modal-area"
+        key={text}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <motion.div
           ref={modalRef}
-          onKeyDown={handleKeyDown}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-          }}
+          className="sign-modal"
+          variants={modalVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          tabIndex={-1}
+          style={{ transformOrigin: "center" }}
         >
-          <div
-            style={{
-              background: "white",
-              padding: "2rem",
-              borderRadius: "8px",
-              width: "400px",
-              maxWidth: "90%",
-            }}
-          >
-            <h2 id="modal-title">Modal Title</h2>
-            <p>This is a fully ARIA-compliant modal using plain React.</p>
-            <button onClick={() => setIsOpen(false)}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
+          <h2>{text}</h2>
+          <p>This modal opens like a book!</p>
+          <button onClick={onClose}>Close</button>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
