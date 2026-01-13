@@ -43,7 +43,7 @@ const SignModal: React.FC<SignModalProps> = ({ children, onClose }) => {
           style={{ transformOrigin: "center" }}
         >
           {children}
-          <button className="button" onClick={onClose}></button>
+          <button className="bookmark-button" onClick={onClose}></button>
         </motion.div>
       </motion.div>
     </AnimatePresence>

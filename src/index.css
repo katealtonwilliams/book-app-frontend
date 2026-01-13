@@ -68,7 +68,7 @@ code {
   transform-origin: center;
 }
 
-.button {
+.bookmark-button {
   cursor: pointer;
   position: absolute;
   top: 0px;
@@ -85,12 +85,13 @@ code {
 }
 
 .pages {
-  padding-top: 30px;
-  padding-left: 80px;
+  padding-top: 20px;
+  padding-left: 90px;
 }
 
 .left-page {
   flex: 0 0 44%;
+  font-size: 24px;
 }
 
 .right-page {
